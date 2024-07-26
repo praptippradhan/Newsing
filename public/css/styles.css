@@ -1,0 +1,269 @@
+/* Importing Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Additional body styles for better rendering */
+body {
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Setting maximum width for images */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Resetting list styles */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Variable definitions using :root */
+:root {
+  /* Color variables */
+  --tomato: hsl(4, 100%, 67%);
+  --dark_slate_Grey: hsl(234, 29%, 20%);
+  --charcoal_grey: hsl(235, 18%, 26%);
+  --grey: hsl(231, 7%, 60%);
+  --white: hsl(0, 0%, 100%);
+
+  /* Font Size variables */
+  --h-fs: 2rem;
+  --p-fs: 1rem;
+  --s-fs: 0.8rem;
+}
+
+/* Font Classes */
+.h-text {
+  font-weight: 700;
+  font-size: var(--h-fs);
+  color: var(--dark_slate_Grey);
+}
+
+.p-text {
+  font-weight: 500;
+  font-size: var(--p-fs);
+  color: var(--charcoal_grey);
+}
+
+.s-text {
+  font-weight: 700;
+  font-size: var(--s-fs);
+  color: var(--dark_slate_Grey);
+}
+
+/* Utility Classes */
+.post_email {
+  color: var(--dark_slate_Grey);
+  font-weight: 700;
+}
+
+.red-text {
+  color: var(--tomato);
+}
+
+/* General CSS */
+/* Main container styles */
+main {
+  min-height: 100vh;
+  display: grid;
+}
+
+/* Container styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+/* Mobile sign-up image styles */
+.img-mobile-sign-up {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* Desktop sign-up image styles */
+.img-sign-up {
+  display: none;
+}
+
+/* Styles for hero text */
+.hero-text {
+  padding: 0 1.2em;
+}
+
+/* Styles for elements within hero text */
+.hero-text > * {
+  margin-bottom: 1.5rem;
+}
+
+/* Styles for icon list items */
+.icon-list li {
+  display: flex;
+  gap: 1em;
+  align-items: start;
+  margin-bottom: 1em;
+}
+
+/* Styles for email field */
+.email-field {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Styles for error text (initially hidden) */
+.error-text {
+  display: none;
+}
+
+/* Styles for input fields */
+input {
+  display: block;
+  width: 100%;
+  padding: 1em 0.5em;
+  border: 1.5px solid var(--grey);
+  border-radius: 5px;
+  outline: none;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+/* Styles for error input fields */
+.error-input {
+  background-color: hsl(4, 100%, 95%);
+  color: var(--tomato);
+  border-color: var(--tomato);
+}
+
+/* Placeholder text color */
+input::placeholder {
+  color: var(--grey);
+}
+
+/* Button styles */
+.btn {
+  background-color: var(--dark_slate_Grey);
+  color: var(--white);
+  padding: 1em 2em;
+  width: 100%;
+  border-radius: 1em;
+  border: 0;
+}
+
+/* Button hover effect */
+.btn:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgba(252, 46, 89, 1) 0%,
+    rgba(252, 82, 118, 1) 35%,
+    rgba(254, 95, 87, 1) 50%
+  );
+}
+
+/* Thank you message styles (initially hidden) */
+.thank_you {
+  display: none;
+  align-items: center;
+  padding: 2em;
+}
+
+/* Styles for elements within the thank you message */
+.confirm-text > * {
+  margin-bottom: 1em;
+}
+
+/* Dismiss button styles */
+.dismiss-btn {
+  align-self: end;
+}
+
+/* Media queries for responsive design */
+@media (min-width: 475px) {
+  main {
+    place-content: center;
+    background-color: var(--dark_slate_Grey);
+  }
+
+  .container {
+    margin: 0 1em;
+    border-radius: 2em;
+    background-color: var(--white);
+  }
+
+  /* Adjusted font sizes for larger screens */
+  :root {
+    --h-fs: 2rem;
+    --p-fs: 1rem;
+    --s-fs: 0.8rem;
+  }
+
+  /* Styles for thank you message on larger screens */
+  .thank_you {
+    display: none;
+    max-width: 450px;
+    background-color: var(--white);
+    border-radius: 2em;
+    margin: 0 1em;
+  }
+
+  .thank_you > * {
+    margin-bottom: 2em;
+  }
+
+  /* Adjusted spacing for larger screens */
+  .hero-text > * {
+    margin-bottom: 2rem;
+  }
+
+  .icon-list li {
+    margin-bottom: 1.2em;
+  }
+
+  input {
+    margin: 1em 0 1em 0;
+  }
+}
+
+/* Adjusted font size for larger screens */
+@media (min-width: 820px) {
+  :root {
+    --h-fs: 3rem;
+  }
+
+  main {
+    place-content: center;
+    background-color: var(--dark_slate_Grey);
+  }
+
+  .container {
+    margin: 0 1em;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 2em;
+    gap: 2em;
+    background-color: var(--white);
+    padding: 1.5em;
+  }
+
+  /* Desktop sign-up image styles */
+  .img-mobile-sign-up {
+    display: none;
+  }
+
+  .img-sign-up {
+    display: block;
+  }
+}
