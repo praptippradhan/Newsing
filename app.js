@@ -36,7 +36,7 @@ app.post("/", function (req, res) {
   const url = "https://us22.api.mailchimp.com/3.0/lists/bb186f81b3";
   const options = {
     method: "POST",
-    auth: "prapti:a4c5526ff900462f959191204bf03d23-us22",
+    auth: "prapti:",
   };
 
   const request = https.request(url, options, function (response, body) {
@@ -49,16 +49,15 @@ app.post("/", function (req, res) {
       console.log(JSON.parse(data));
     });
   });
+
   request.write(jsonData);
   request.end();
 });
 
+app.post("/failure", function (req, res) {
+  res.redirect("/");
+})
+
 app.listen(3000, function () {
   console.log("Listening on 3000");
 });
-
-//API Key
-//a4c5526ff900462f959191204bf03d23-us22
-
-// Audience ID
-// bb186f81b3
