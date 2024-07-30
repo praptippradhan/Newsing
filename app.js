@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const request = require("request");
-const https = require("node:https");
+const https = require("https");
 
 const app = express();
 
@@ -9,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/signup.html");
+  res.sendFile(__dirname + "/public/signup.html");
 });
 
 app.post("/", function (req, res) {
@@ -32,17 +31,17 @@ app.post("/", function (req, res) {
 
   let jsonData = JSON.stringify(data);
 
-  const url = "https://us22.api.mailchimp.com/3.0/lists/bb186f81b3";
+  const url = `https://us22.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LIST_ID}`;
   const options = {
     method: "POST",
-    auth: "prapti:c2d45027abb8247994141cdb66640598-us22",
+    auth: `anystring:${process.env.MAILCHIMP_API_KEY}`,
   };
 
   const request = https.request(url, options, function (response) {
     if (response.statusCode === 200) {
-      res.sendFile(__dirname + "/success.html");
+      res.sendFile(__dirname + "/public/success.html");
     } else {
-      res.sendFile(__dirname + "/failure.html");
+      res.sendFile(__dirname + "/public/failure.html");
     }
     response.on("data", function (data) {
       console.log(JSON.parse(data));
@@ -55,7 +54,7 @@ app.post("/", function (req, res) {
 
 app.post("/failure", function (req, res) {
   res.redirect("/");
-})
+});
 
 app.listen(3000, function () {
   console.log("Listening on 3000");
