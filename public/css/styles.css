@@ -245,7 +245,7 @@ input::placeholder {
 
   main {
     place-content: center;
-    background-color: var(--dark_slate_Grey);
+    background-color: #1e293b;
   }
 
   .container {
@@ -267,3 +267,5 @@ input::placeholder {
     display: block;
   }
 }
+
+

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newsing - Dark Theme</title>
+    <style>
+        /* Dark Theme Styles */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+            max-width: 1280px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .main-article {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .main-article:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px -1px rgb(0 0 0 / 0.8);
+        }
+
+        .main-article img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-article h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #3b82f6, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .main-article p {
+            font-size: 1.125rem;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            background: #2563eb;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .read-more:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .sidebar {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+        }
+
+        .sidebar h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: #38bdf8;
+            font-weight: 700;
+        }
+
+        .sidebar-item {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .sidebar-item:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #f8fafc;
+        }
+
+        .sidebar-item p {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin: 0;
+        }
+
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .grid-item {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+            transition: transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .grid-item .grid-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+        }
+
+        .grid-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #e2e8f0;
+            font-weight: 700;
+        }
+
+        .grid-item p {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin: 0;
+        }
+
+        .subscribe-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+
+        .subscribe-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #059669;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+        }
+
+        .subscribe-button:hover {
+            background: #047857;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px -1px rgb(0 0 0 / 0.7);
+        }
+
+        .subscribe-button svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .main-article h1 {
+                font-size: 2rem;
+            }
+
+            .bottom-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .subscribe-container {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="main-article">
+        <img src="images/web3.png" alt="Featured Article" />
+        <h1>The Bright Future of Web 3.0?</h1>
+        <p>
+            We dive into the next evolution of the web that claims to put the power
+            of the platforms back into the hands of the people. But is it really
+            fulfilling its promise?
+        </p>
+        <a href="https://www.ramotion.com/blog/what-is-web-3-0/" class="read-more">Read More</a>
+    </div>
+    <div class="sidebar">
+        <h2>New</h2>
+        <div class="sidebar-item">
+            <h3>Hydrogen VS Electric Cars</h3>
+            <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+        </div>
+        <div class="sidebar-item">
+            <h3>The Downsides of AI Artistry</h3>
+            <p>What are the possible adverse effects of AI image generation?</p>
+        </div>
+        <div class="sidebar-item">
+            <h3>Is VC Funding Drying Up?</h3>
+            <p>Private funding by VC firms is down 50% YOY.</p>
+        </div>
+    </div>
+</div>
+
+<div class="bottom-grid container">
+    <div class="grid-item">
+        <span class="grid-number">01</span>
+        <h3>Reviving Retro PCs</h3>
+        <p>What happens when old PCs are given modern upgrades?</p>
+    </div>
+    <div class="grid-item">
+        <span class="grid-number">02</span>
+        <h3>Top 10 Laptops of 2022</h3>
+        <p>Our best picks for various needs and budgets.</p>
+    </div>
+    <div class="grid-item">
+        <span class="grid-number">03</span>
+        <h3>The Growth of Gaming</h3>
+        <p>How the pandemic has sparked fresh opportunities.</p>
+    </div>
+</div>
+<div class="subscribe-container">
+    <a href="/signup">
+        <button class="subscribe-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+            </svg>
+            Subscribe to Newsletter
+        </button>
+    </a>
+</div>
+</body>
+</html>
